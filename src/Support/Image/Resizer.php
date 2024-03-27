@@ -251,7 +251,7 @@ class Resizer implements ImageResizerInterface
         $centerY = ($optimalHeight / 2) - ($height / 2);
 
         return $image->resize(new Box($optimalWidth, $optimalHeight))
-            ->crop(new Point($centerX, $centerY), new Box($width, $height));
+            ->crop(new Point($centerX, $centerY), new Box((int) $width, (int) $height));
     }
 
     /**
@@ -264,7 +264,7 @@ class Resizer implements ImageResizerInterface
      */
     protected function resizeExact(ImageInterface $image, string $width, string $height): ImageInterface
     {
-        return $image->resize(new Box($width, $height));
+        return $image->resize(new Box((int) $width, (int) $height));
     }
 
     /**
